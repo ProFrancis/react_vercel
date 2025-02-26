@@ -43,7 +43,7 @@ mongoose
   .catch(error => console.log(error))
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: ['http://localhost:5173','https://react-vercel-5khi.vercel.app'],
   credentials: true
 }));
 app.use('/uploads', express.static(path.join(dirname, 'uploads')));
