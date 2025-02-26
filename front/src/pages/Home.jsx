@@ -2,20 +2,17 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./Home.module.css";
 import { Link } from "react-router-dom";
+import axiosInstance from "../utils/axiosInstance";
+import URL from '../constants/api'
+
 
 const Home = () => {
-  // url  pour récupérer les articles
-  // http://localhost:8000/api/article/all
-
   const [article, setArticle] = useState([]);
 
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const { data, status } = await axios.get(
-          `http://localhost:8000/api/article/all`
-        );
-        console.log(data);
+        const { data, status } = await axiosInstance.get(URL.FETCH_ARTICLES);
         if (status === 200) setArticle(data);
       } catch (error) {
         console.log(error.message);
