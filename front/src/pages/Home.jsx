@@ -29,7 +29,7 @@ const Home = () => {
           key={item._id}
           to={{ pathname: `/detail/article/${item._id}` }}
         >
-          <img src={`http://localhost:8000${item.picture.img}`} width={400} />
+          <img src={`${URL.BASE_URL}${item.picture.img}`} width={400} />
           <p>
             {item.name} - {item.price} €
           </p>
